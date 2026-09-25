@@ -50,7 +50,7 @@ def update_event(event_id):
 
     event = next((event for event in events if event.id == event_id), None)
     if event is None:
-        return jsonify({"error": f"Event with id {id} not found"}), 404
+        return jsonify({"error": f"Event with id {event_id} not found"}), 404
 
     title = data.get("title")
     if not title:
@@ -69,7 +69,7 @@ def update_event(event_id):
 def delete_event(event_id):
     event = next((event for event in events if event.id == event_id), None)
     if event is None:
-        return jsonify({"error": f"Event with id {id} not found"}), 404
+        return jsonify({"error": f"Event with id {event_id} not found"}), 404
 
     events.remove(event)
 
