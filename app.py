@@ -48,7 +48,7 @@ def update_event(event_id):
     if not data:
         return jsonify({"error": "Request body must contain JSON data"}),400
 
-    event = next((event for event in events if event.id == id), None)
+    event = next((event for event in events if event.id == event_id), None)
     if event is None:
         return jsonify({"error": f"Event with id {id} not found"}), 404
 
@@ -67,7 +67,7 @@ def update_event(event_id):
 # Remove an event from the list
 @app.route("/events/<int:event_id>", methods=["DELETE"])
 def delete_event(event_id):
-    event = next((event for event in events if event.id == id), None)
+    event = next((event for event in events if event.id == event_id), None)
     if event is None:
         return jsonify({"error": f"Event with id {id} not found"}), 404
 
